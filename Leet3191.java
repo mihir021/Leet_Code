@@ -15,10 +15,8 @@ class Solution3191 {
                 ans++;
             }
         }
-        for(int i = 0 ; i < nums.length;i++){
-
-            if(nums[i]==1)  found = true;
-
+        for (int num : nums) {
+            if (num == 1) found = true;
             else {
                 found = false;
                 break;
