@@ -1,12 +1,15 @@
 class Solution3516{
     public int findClosest(int x, int y, int z) {
-
-        if((int)Math.abs(x-z) > ((int)Math.abs(y-z))){
+        int x1 = Math.abs((x-z));
+        int y1 = Math.abs((y-z));
+        if(x1>y1){
             return 2;
         }
-        if((int)Math.abs(x-z) < ((int)Math.abs(y-z))){
+        else if(x1<y1){
             return 1;
         }
-        return 0;
+        else{
+            return 0;
+        }
     }
 }
