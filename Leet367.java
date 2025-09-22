@@ -1,9 +1,22 @@
 class Solution367 {
     public boolean isPerfectSquare(int num) {
-        double ans = Math.sqrt(num);
-        int ans1 = (int)ans;
-
-        if(ans1 == ans) return true;
-        else return false;
+        long low = 0;
+        long high = num;
+        long mid = 0;
+        long squareRoot = 0;
+        while (low<=high){
+            mid = (low+high)/2;
+            squareRoot = mid*mid;
+            if(squareRoot==num){
+                return true;
+            }
+            else if(squareRoot<num){
+                low = mid+1;
+            }
+            else{
+                high = mid-1;
+            }
+        }
+        return false;
     }
 }
