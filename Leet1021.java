@@ -1,5 +1,5 @@
 class Solution1021 {
-    public String removeOuterParentheses(String s) {
+    public static String removeOuterParentheses(String s) {
         StringBuilder result = new StringBuilder();
         int openCount = 0;
 
@@ -17,5 +17,9 @@ class Solution1021 {
             }
         }
         return result.toString();
+    }
+
+    public static void main(String[] args) {
+        removeOuterParentheses("(()())");
     }
 }
