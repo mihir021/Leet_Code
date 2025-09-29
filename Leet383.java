@@ -7,8 +7,11 @@ class Solution383 {
             freq[magazine.charAt(i)-'a']++;
         }
         for(int i = 0; i<ransomNote.length(); i++){
-            if(freq[ransomNote.charAt(i)-'a']==0) return false;
-            else freq[ransomNote.charAt(i)-'a']--;
+            if(freq[ransomNote.charAt(i)-'a'] ==0) return false;
+            else {
+                int i2 = freq[ransomNote.charAt(i) - 'a'];
+                i2--;
+            }
         }
         return true;
     }
