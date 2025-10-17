@@ -43,8 +43,8 @@ class Solution147 {
         a3.next = a4;
         a4.next = a5;
         a5.next = a6;
-
         print(head);
         print(insertionSortList(head));
+
     }
 }
