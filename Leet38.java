@@ -15,7 +15,7 @@ class Solution38 {
         String ans = "1";
         int counter = 1;
         StringBuilder temp = new StringBuilder();
-        while(n-- > 0){
+        while(--n > 0){
             for(int i = 0 ; i < (ans.length()-1) ; i++){
                 if(ans.charAt(i)!=ans.charAt(i+1)){
                     temp.append(counter).append(ans.charAt(i));
