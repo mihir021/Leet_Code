@@ -25,8 +25,7 @@ class Solution19 {
         for(int i = 1 ; i != stop ; temp = temp.next ){
             i++;
         }
-        ListNode temp2 = temp.next.next;
-        temp.next = temp2;
+        temp.next = temp.next.next;
 
         return head;
     }
