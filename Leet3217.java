@@ -2,11 +2,9 @@ import java.util.HashSet;
 
 class Solution3217 {
     public static ListNode modifiedList(int[] nums, ListNode head) {
-        // Put nums in a HashSet for fast lookup
         HashSet<Integer> set = new HashSet<>();
         for (int n : nums) set.add(n);
 
-        // Remove any matching nodes from start
         while (head != null && set.contains(head.val)) {
             head = head.next;
         }
@@ -14,7 +12,7 @@ class Solution3217 {
         ListNode curr = head;
         while (curr != null && curr.next != null) {
             if (set.contains(curr.next.val)) {
-                curr.next = curr.next.next; // delete
+                curr.next = curr.next.next;
             } else {
                 curr = curr.next;
             }
