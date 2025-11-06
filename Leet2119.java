@@ -15,7 +15,8 @@ class Solution2119 {
 //        return a == rev;
         if (num == 0)
             return true;
-        return num%10 != 0;    }
+        return num%10 != 0;
+    }
 
     public static void main(String[] args) {
         isSameAfterReversals(526);
