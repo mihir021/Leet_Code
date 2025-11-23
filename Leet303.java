@@ -1,6 +1,4 @@
 class NumArray {
-
-
     int[] nums1;
     public NumArray(int[] nums) {
         nums1 = new int[nums.length];
@@ -15,8 +13,3 @@ class NumArray {
     }
 }
 
-/**
- * Your NumArray object will be instantiated and called as such:
- * NumArray obj = new NumArray(nums);
- * int param_1 = obj.sumRange(left,right);
- */
