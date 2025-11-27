@@ -1,0 +1,34 @@
+name: Daily Auto Commit
+
+on:
+  schedule:
+    - cron: "0 18 * * *"  
+  workflow_dispatch:       
+jobs:
+  auto-commit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Make changes
+        run: |
+          mkdir -p auto-update
+          echo "Auto run at $(date -u)" >> auto-update/log.txt
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+          # Check if there is anything to commit
+          git status
+
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Auto update: $(date -u)"
+            git push
+          fi
