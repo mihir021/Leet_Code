@@ -28,6 +28,7 @@ class Solution1{
         ans_in_array[1]= i;
         return ans_in_array;
         // test change
+        // auto-push test
 
     }
 }
