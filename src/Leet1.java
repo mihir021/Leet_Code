@@ -29,13 +29,5 @@ class Solution1{
         return ans_in_array;
         // test change
         // auto-push test
-
-
-
-
-
-
-
-
     }
 }
