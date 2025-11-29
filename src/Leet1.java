@@ -13,6 +13,7 @@ class Solution1{
                     found = true ;
                     if(i != fix)
                         break;
+
                 }
             }
             if(found)
