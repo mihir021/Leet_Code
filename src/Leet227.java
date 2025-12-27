@@ -4,37 +4,29 @@ class Solution227 {
     public static int calculate(String s) {
         Stack<Integer> ans = new Stack<>();
         s = s.trim();
-        if (s.length() == 1){
-            return s.charAt(0)-'0';
+        int num = 0;
+        char sign = '+';
+        char ch;
+        for (int i = 0 ; i < s.length() ; i++){
+             ch = s.charAt(i);
+             if(Character.isDigit(ch)){
+                 num = num*10 + (ch-'0');
+             }
+             if(!Character.isDigit(ch) && ch != ' ' || i == s.length()-1){
+                if(sign=='+'){
+                    ans.push(num);
+                } else if (sign == '*') {
+                    ans.push(ans.pop()*num);
+                } else if (sign == '/') {
+                    ans.push(ans.pop()/num);
+                } else {
+                    ans.push(-num);
+                }
+                sign = ch;
+                num = 0;
+             }
         }
-        char currentElement;
-        char nextElement;
-        String temp="";
-        boolean fix;
-        for (int i = 0 ; i < s.length()-1 ; i++){
-            currentElement = s.charAt(i);
-            if (currentElement==' ') continue;
-            while (i < s.length()-1 && s.charAt(i+1)== ' '){
-               i++;
-            }
-            nextElement = s.charAt(i+1);
-            if (Character.isDigit(currentElement) && Character.isDigit(nextElement)){
-                temp = currentElement +""+ nextElement;
-            }
-// 1 2 9 8 9 8 9  + 3
-// c n
-            if (Character.isDigit(currentElement)){
-                ans.push(currentElement-'0');
-            } else if (currentElement == '*') {
-                ans.push(ans.pop()*(nextElement-'0'));
-            } else if (currentElement == '/') {
-                ans.push(ans.pop()/(nextElement-'0'));
-            } else if (currentElement == '-') {
-               ans.push(-(nextElement-'0'));
-               i++;
-            }
-        }
-        // 1 - 2 + 3 * 4 / 6
+
         int finalAns = 0;
         while (!ans.isEmpty()){
             finalAns += ans.pop();
@@ -43,6 +35,6 @@ class Solution227 {
     }
 
     static void main(String[] args) {
-        System.out.println(calculate(" 3+5 / 2 "));
+        System.out.println(calculate("1 + 1"));
     }
 }
