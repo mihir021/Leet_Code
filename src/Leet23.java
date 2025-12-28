@@ -1,3 +1,5 @@
+import java.util.Collection;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 /**
@@ -12,7 +14,7 @@ import java.util.PriorityQueue;
  */
 class Solution23 {
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
         ListNode head;
         for (ListNode list : lists) {
             head = list;
@@ -21,17 +23,18 @@ class Solution23 {
                 head = head.next;
             }
         }
-        ListNode ans = new ListNode();
-
-
-    }
-    int size(ListNode head){
-        ListNode temp = head;
-        int ans = 0 ;
-        for (; temp != null;temp = temp.next){
-            ans++;
+        ListNode ans;
+        ListNode temp;
+        if(!pq.isEmpty()){
+            ans = new ListNode(pq.remove());
+            while (!pq.isEmpty()){
+                temp =new ListNode(pq.remove());
+                temp.next = ans;
+                ans = temp;
+            }
+            return ans;
+        }else {
+            return null;
         }
-        return ans;
     }
-
 }
